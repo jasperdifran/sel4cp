@@ -95,6 +95,14 @@ SUPPORTED_CONFIGS = (
         kernel_options = {},
     ),
     ConfigInfo(
+        name="benchmark"
+        debug=False,
+        kernel_options = {
+            "KernelDebugBuild": False,
+            "KernelBenchmarks": "track_utilisation"
+        },
+    ),
+    ConfigInfo(
         name="debug",
         debug=True,
         kernel_options = {
@@ -102,7 +110,7 @@ SUPPORTED_CONFIGS = (
             "KernelPrinting": True,
             "KernelVerificationBuild": False
         }
-    ),
+    )
 )
 
 
