@@ -144,15 +144,15 @@ def test_tool() -> None:
     assert r == 0
 
 def build_tool(tool_target: Path) -> None:
-    pyoxidizer = "/usr/local/bin/pyoxidizer"
+    pyoxidizer = "./env/bin/pyoxidizer"
     #if not pyoxidizer.exists():
     #    raise Exception("pyoxidizer does not appear to be installed in your Python environment")
     r = system(
-        f"{pyoxidizer} build --release --path tool --target-triple aarch64-apple-darwin"
+        f"{pyoxidizer} build --release --path tool --target-triple x86_64-apple-darwin"
     )
     assert r == 0
 
-    tool_output = "./tool/build/aarch64-apple-darwin/release/install/sel4cp"
+    tool_output = "./tool/build/x86_64-apple-darwin/release/install/sel4cp"
 
     r = system(f"strip {tool_output}")
     assert r == 0
@@ -197,7 +197,7 @@ def build_sel4(
         f" -DKernelPlatform={platform} {config_str} " \
         f"-S {sel4_dir.absolute()} -B {sel4_build_dir.absolute()}")
     
-    cmd += " -DCROSS_COMPILER_PREFIX=aarch64-unknown-linux-gnu-"
+    cmd += " -DCROSS_COMPILER_PREFIX=aarch64-none-elf-"
 
     r = system(cmd)
     if r != 0:

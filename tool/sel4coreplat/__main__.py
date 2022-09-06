@@ -1398,10 +1398,10 @@ def build_system(
 
     # THIS IS A MASSIVE HACK TO JUST GET THE KERNEL LOG BUFFER TO WORK FOR DEV PURPOSES:
     # This assumes the PD is called bench, and the memory region is called log_buffer. (For a user level kernel log buffer)
-    pd = system.pd_by_name["bench"]
-    mr = all_mr_by_name["log_buffer"] # change this to whatever the name is? 
-    print(mr_pages[mr][0].cap_addr)
-    system_invocations.append(Sel4CnodeCopy(cnode_objects_by_pd[pd].cap_addr, LOG_BUFFER, PD_CAP_BITS, root_cnode_cap, mr_pages[mr][0].cap_addr, kernel_config.cap_address_bits, SEL4_RIGHTS_ALL))
+    # pd = system.pd_by_name["bench"]
+    # mr = all_mr_by_name["log_buffer"] # change this to whatever the name is? 
+    # print(mr_pages[mr][0].cap_addr)
+    # system_invocations.append(Sel4CnodeCopy(cnode_objects_by_pd[pd].cap_addr, LOG_BUFFER, PD_CAP_BITS, root_cnode_cap, mr_pages[mr][0].cap_addr, kernel_config.cap_address_bits, SEL4_RIGHTS_ALL))
 
     # All minting is complete at this point
 
