@@ -20,7 +20,7 @@ $(error LINK_ADDRESS must be specified)
 endif
 
 
-TOOLCHAIN := aarch64-linux-gnu-
+TOOLCHAIN := aarch64-none-elf-
 CFLAGS := -std=gnu11 -g3 -O3 -nostdlib -ffreestanding -mcpu=$(GCC_CPU) -DBOARD_$(BOARD) -Wall -Werror
 
 PROGS := loader.elf
